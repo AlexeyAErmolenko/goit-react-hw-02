@@ -6,13 +6,13 @@ import Feedback from "../Feedback/Feedback.jsx";
 import Notification from "../Notification/Notification.jsx";
 // import ClickCounter from "../ClickCounter/ClickCounter.jsx";
 
+const getInitialState = () => { 
+  const statesSaved = localStorage.getItem('states');      
+  return (statesSaved !== null) ? JSON.parse(statesSaved) : { good: 0, neutral: 0, bad: 0 }; 
+}
+
 export default function App() {
-  const [states, setState] = useState(
-    () => { 
-      const statesSaved = localStorage.getItem('states');
-      if (statesSaved !== null) { return JSON.parse(statesSaved); } else { setState({ good: 0, neutral: 0, bad: 0 }); } 
-    }
-  );     
+  const [states, setState] = useState(getInitialState);     
   const updateFeedback = feedbackType => {   
     if (feedbackType === 'reset')
       { return (setState({ good: 0, neutral: 0, bad: 0 })); }
