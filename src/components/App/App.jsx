@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.module.css';
 import Description from '../Description/Description.jsx';
 import Options from '../Options/Options.jsx';
@@ -11,7 +10,7 @@ export default function App() {
   const [states, setState] = useState(
     () => { 
       const statesSaved = localStorage.getItem('states');
-      if (statesSaved.good !== null) { return JSON.parse(statesSaved); } else {setState({ good: 0, neutral: 0, bad: 0 })} 
+      if (statesSaved !== null) { return JSON.parse(statesSaved); } else { setState({ good: 0, neutral: 0, bad: 0 }); } 
     }
   );     
   const updateFeedback = feedbackType => {   
