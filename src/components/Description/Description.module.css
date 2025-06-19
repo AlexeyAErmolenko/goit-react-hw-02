@@ -1,0 +1,10 @@
+.container {}
+
+.title {
+    font-size: 36px;
+}
+
+.text {
+    font-size: 18px;
+    text-transform: none;
+}
